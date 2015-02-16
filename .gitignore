@@ -6,3 +6,6 @@
 
 # Ignore per machine install of jsmin
 bin/jsmin
+
+#OSX .DS_store
+.DS_store

@@ -1025,7 +1025,7 @@ Liquid.Template.registerTag( 'for', Liquid.Block.extend({
       limit = context.get( this.attributes['limit'] );
 
       rangeEnd = (limit) ? offset + limit + 1 : collection.length;
-      range = [ offset, rangeEnd - 1 ];
+      range = [ offset, rangeEnd];
 
       context.registers['for'][this.name] = rangeEnd;
     }
@@ -1537,4 +1537,13 @@ split = split || function (undef) {
 
 }();
 
-module.exports = Liquid;
+var root = this;
+
+if (typeof exports !== 'undefined') {
+  if (typeof module !== 'undefined' && module.exports) {
+    exports = module.exports = Liquid;
+  }
+  exports.Liquid = Liquid;
+} else {
+  root['Liquid'] = Liquid;
+}
